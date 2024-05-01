@@ -17,27 +17,23 @@ class SearchBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: TextField(
               decoration: InputDecoration(
                 hintText: "Search Wallpapers",
-                errorBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                focusedErrorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                hintStyle: TextStyle(color: Colors.grey),
                 border: InputBorder.none,
               ),
             ),
           ),
           InkWell(
-              onTap: (){
-                print("Searching...");
-              },
-              child: Icon(Icons.search))
+            onTap: () {
+              print("Searching...");
+            },
+            child: Icon(Icons.search),
+          ),
         ],
       ),
-
     );
   }
 }
