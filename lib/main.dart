@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaperapp/views/screens/categori.dart';
-import 'package:wallpaperapp/views/screens/home.dart';
+import 'package:WallpaperHaven/views/screens/categori.dart';
+import 'package:WallpaperHaven/views/screens/home.dart';
 
 void main() {
   runApp(const MyApp());

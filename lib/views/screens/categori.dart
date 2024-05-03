@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:wallpaperapp/views/widgets/CustomAppBar.dart';
-import 'package:wallpaperapp/views/widgets/category.dart';
+import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
+import 'package:WallpaperHaven/views/widgets/category.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
