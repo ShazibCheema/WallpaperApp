@@ -1,4 +1,7 @@
+import 'package:WallpaperHaven/model/categoryModel.dart';
 import 'package:WallpaperHaven/model/photosModel.dart';
+import 'package:WallpaperHaven/views/fullScreen.dart';
+import 'package:WallpaperHaven/views/widgets/categoryBlock.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -16,19 +19,30 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   late List<PhotosModel> trendingWallList;
+  late List<CategoryModel> CatModList;
+  bool isloading = true;
+
+  GetCategoryDetails() async{
+    CatModList = await ApiOperations.getCategoriesList();
+    print("Getting Category Model List");
+    print(CatModList);
+    setState(() {
+      CatModList = CatModList;
+    });
+  }
 
 
 GetTrendingWallpapers() async{
-  trendingWallList = await ApiOperation.getTrendingWallpapers();
+  trendingWallList = await ApiOperations.getTrendingWallpapers();
 
   setState(() {
-
+    isloading = false;
   });
 }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    GetCategoryDetails();
     GetTrendingWallpapers();
 
   }
@@ -56,40 +70,59 @@ GetTrendingWallpapers() async{
                 width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 30,
-                    itemBuilder: ((context, index) => Category())),
+                    itemCount: CatModList.length,
+                    itemBuilder: ((context, index) => CatBlock(
+                        categoryImgSrcc: CatModList[index].categoryImgUrl,
+                        categoryNamee: CatModList[index].categoryName))),
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               height: MediaQuery.of(context).size.height,
-              child: GridView.builder(
-                physics: BouncingScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: 400,
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 13,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: trendingWallList.length,
-                itemBuilder: (context, index) => GridTile(
-                  child: Container(
-                    height: 800,
-                    width: 50,
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                          height: 800,
-                          width: 50,
-                          fit: BoxFit.cover,
-                          trendingWallList[index].imgSrc),
+              child: RefreshIndicator(
+                onRefresh: () async{
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+                child: GridView.builder(
+                  physics: BouncingScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 400,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 13,
+                    mainAxisSpacing: 10,
+                  ),
+                  itemCount: trendingWallList.length,
+                  itemBuilder: (context, index) => GridTile(
+                      child: InkWell(
+                        onTap: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=>FullScreen(imgUrl: trendingWallList[index].imgSrc)));
+                        },
+                        child: Hero(
+                          tag: trendingWallList[index].imgSrc,
+                          child: Container(
+                            height: 800,
+                            width: 50,
+                            decoration:
+                                BoxDecoration(
+                                    color: Colors.amberAccent ,
+                                    borderRadius: BorderRadius.circular(20)),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.network(
+                                    height: 800,
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                    trendingWallList[index].imgSrc),
+                              ),
+                            ),
+                        ),
+                      ),
+                    ),
                     ),
                   ),
                 ),
-              ),
-            ),
           ],
         ),
       ),
