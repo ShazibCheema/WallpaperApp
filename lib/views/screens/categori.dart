@@ -1,6 +1,6 @@
 import 'package:WallpaperHaven/controller/apioperation.dart';
 import 'package:WallpaperHaven/model/photosModel.dart';
-import 'package:WallpaperHaven/views/fullScreen.dart';
+import 'package:WallpaperHaven/views/screens/fullScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

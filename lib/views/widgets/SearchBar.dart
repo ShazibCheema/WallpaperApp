@@ -30,19 +30,19 @@ class SearchBar extends StatelessWidget {
                   disabledBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
                   border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.search),
                 ),
               ),
             ),
             InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              SearchScreen(query: _searchController.text)));
-                },
-                )
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            SearchScreen(query: _searchController.text)));
+              },
+            )
           ],
         ));
   }

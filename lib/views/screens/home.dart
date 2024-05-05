@@ -1,6 +1,6 @@
 import 'package:WallpaperHaven/model/categoryModel.dart';
 import 'package:WallpaperHaven/model/photosModel.dart';
-import 'package:WallpaperHaven/views/fullScreen.dart';
+import 'package:WallpaperHaven/views/screens/fullScreen.dart';
 import 'package:WallpaperHaven/views/widgets/categoryBlock.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ GetTrendingWallpapers() async{
         backgroundColor: Colors.white,
         title: CustomAppBar(),
       ),
-      body: SingleChildScrollView(
+      body: isloading ? Center(child: CircularProgressIndicator(),) : SingleChildScrollView(
         child: Column(
           children: [
             Container(

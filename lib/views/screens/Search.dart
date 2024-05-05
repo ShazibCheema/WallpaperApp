@@ -1,11 +1,8 @@
 import 'package:WallpaperHaven/controller/apioperation.dart';
 import 'package:WallpaperHaven/model/photosModel.dart';
-import 'package:WallpaperHaven/views/fullScreen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:WallpaperHaven/views/screens/fullScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
-import 'package:WallpaperHaven/views/widgets/category.dart';
 
 class SearchScreen extends StatefulWidget {
   String query;
@@ -18,12 +15,12 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
 
   late List<PhotosModel> searchResults;
-
+  bool isloading = true;
   GetSearchResults() async{
 
     searchResults = await ApiOperations.searchWallpapers(widget.query);
     setState(() {
-
+      isloading = false;
     });
   }
   @override
@@ -42,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Colors.white,
         title: CustomAppBar(),
       ),
-      body: SingleChildScrollView(
+      body: isloading ? Center(child: CircularProgressIndicator(),) : SingleChildScrollView(
         child: Column(
           children: [
             Container(
