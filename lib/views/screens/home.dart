@@ -1,8 +1,10 @@
 import 'package:WallpaperHaven/model/categoryModel.dart';
 import 'package:WallpaperHaven/model/photosModel.dart';
 import 'package:WallpaperHaven/views/screens/fullScreen.dart';
+import 'package:WallpaperHaven/views/widgets/SearchBar.dart';
 import 'package:WallpaperHaven/views/widgets/categoryBlock.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:WallpaperHaven/controller/apioperation.dart';
@@ -57,14 +59,14 @@ GetTrendingWallpapers() async{
         backgroundColor: Colors.white,
         title: CustomAppBar(),
       ),
-      body: isloading ? Center(child: CircularProgressIndicator(),) : SingleChildScrollView(
+      body: isloading ? Center(child: SpinKitCircle(color: Colors.amberAccent,),) : SingleChildScrollView(
         child: Column(
           children: [
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: SearchBar()),
+                child: searchbar()),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 20),
+              margin: EdgeInsets.symmetric(vertical: 10),
               child: SizedBox(
                 height: 50,
                 width: MediaQuery.of(context).size.width,

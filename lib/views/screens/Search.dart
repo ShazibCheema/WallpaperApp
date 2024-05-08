@@ -49,7 +49,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
 
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: EdgeInsets.symmetric(vertical: 20),
               height: MediaQuery.of(context).size.height,
               child: GridView.builder(
 
@@ -60,6 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     crossAxisSpacing: 13,
                     mainAxisSpacing: 10,
                   ),
+
                   itemCount: searchResults.length,
                   itemBuilder: (context, index) => GridTile(
                     child: InkWell(
