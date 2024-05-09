@@ -108,7 +108,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => FullScreen(
-                                            imgUrl: categoryResults[index]
+                                            imgPath: categoryResults[index]
                                                 .imgSrc)));
                               },
                               child: Hero(

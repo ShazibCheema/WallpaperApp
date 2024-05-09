@@ -99,7 +99,7 @@ GetTrendingWallpapers() async{
                       child: InkWell(
                         onTap: (){
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=>FullScreen(imgUrl: trendingWallList[index].imgSrc)));
+                              MaterialPageRoute(builder: (context)=>FullScreen(imgPath: trendingWallList[index].imgSrc)));
                         },
                         child: Hero(
                           tag: trendingWallList[index].imgSrc,

@@ -70,7 +70,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         FullScreen(
-                                            imgUrl: searchResults[index]
+                                            imgPath: searchResults[index]
                                                 .imgSrc)));
                           },
                       child: Hero(
