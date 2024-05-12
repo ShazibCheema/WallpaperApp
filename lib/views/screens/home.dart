@@ -107,7 +107,7 @@ GetTrendingWallpapers() async{
                             width: 50,
                             decoration:
                                 BoxDecoration(
-                                    color: Colors.amberAccent ,
+                                    color: Colors.black12 ,
                                     borderRadius: BorderRadius.circular(20)),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
