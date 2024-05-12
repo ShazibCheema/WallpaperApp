@@ -3,6 +3,7 @@ import 'package:WallpaperHaven/model/photosModel.dart';
 import 'package:WallpaperHaven/views/screens/fullScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SearchScreen extends StatefulWidget {
   String query;
@@ -39,7 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Colors.white,
         title: CustomAppBar(),
       ),
-      body: isloading ? Center(child: CircularProgressIndicator(),) : SingleChildScrollView(
+      body: isloading ? Center(child: SpinKitCircle(color: Colors.amberAccent,),) : SingleChildScrollView(
         child: Column(
           children: [
             Container(

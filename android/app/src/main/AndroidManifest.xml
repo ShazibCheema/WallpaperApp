@@ -6,7 +6,7 @@
     <application
         android:label="WallpaperHaven"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/paint">
         <activity
             android:name=".MainActivity"
             android:exported="true"

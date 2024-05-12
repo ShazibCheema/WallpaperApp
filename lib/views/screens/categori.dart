@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
 import 'package:WallpaperHaven/views/widgets/category.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CategoryScreen extends StatefulWidget {
   String categoryName;
@@ -44,9 +45,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         title: CustomAppBar(),
       ),
       body: isloading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
+          ? Center(child: SpinKitCircle(color: Colors.amberAccent,),)
           : SingleChildScrollView(
               child: Column(
                 children: [

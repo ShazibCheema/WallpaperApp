@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
         ),
         nextScreen: HomeScreen(),
       duration: 5000,
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       splashTransition: SplashTransition.fadeTransition,
 
     );
