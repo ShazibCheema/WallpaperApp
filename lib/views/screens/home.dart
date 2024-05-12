@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:WallpaperHaven/controller/apioperation.dart';
 import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
-import 'package:WallpaperHaven/views/widgets/category.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,7 +79,7 @@ GetTrendingWallpapers() async{
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              height: MediaQuery.of(context).size.height,
+              height: 800,
               child: RefreshIndicator(
                 onRefresh: () async{
                   Navigator.push(context,

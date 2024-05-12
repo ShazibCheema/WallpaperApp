@@ -12,7 +12,7 @@ class ApiOperations {
   static String _apiKey =
       "5Twn3kOToszHFkEvIPjgVwCXna989OEBFmqEV76y9bRXQYk7ATLky4KQ";
   static Future<List<PhotosModel>> getTrendingWallpapers() async {
-    await http.get(Uri.parse("https://api.pexels.com/v1/curated"),
+    await http.get(Uri.parse("https://api.pexels.com/v1/curated?page=1&per_page=40"),
         headers: {"Authorization": "$_apiKey"}).then((value) {
       
       Map<String, dynamic> jsonData = jsonDecode(value.body);
