@@ -20,15 +20,13 @@ class _searchbarState extends State<searchbar> {
 
   getphoto(search) async {
     setState(() {
-      data = []; // Clear data before new search
+      data = [];
     });
 
     try {
       final url = Uri.parse(
           "https://api.pexels.com/v1/search?query=$search&per_page=30&page=1");
-
       var response = await http.get(url);
-
       var result = jsonDecode(response.body);
 
       data = result['results'];
