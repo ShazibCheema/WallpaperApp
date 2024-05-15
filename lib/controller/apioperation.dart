@@ -45,7 +45,7 @@ class ApiOperations {
     List cateogryName = [
       "Cars",
       "Nature",
-      "WaterFall",
+      "Gaming",
       "Bikes",
       "Street",
       "City",

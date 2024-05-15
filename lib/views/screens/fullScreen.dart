@@ -108,7 +108,7 @@ class _ImageViewState extends State<FullScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                "Set Wallpaper",
+                                "Save Wallpaper",
                                 style: TextStyle(
                                     color: Colors.white70,
                                     fontSize: 15,

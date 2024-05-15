@@ -81,6 +81,7 @@ GetTrendingWallpapers() async{
               margin: EdgeInsets.symmetric(horizontal: 10),
               height: 800,
               child: RefreshIndicator(
+                color: Colors.orangeAccent,
                 onRefresh: () async{
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomeScreen()));

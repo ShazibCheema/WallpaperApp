@@ -45,7 +45,11 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Container(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: SearchBar()),
+                child: Text("Search Wallpaper for ${widget.query}",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold
+                  ),)),
 
 
 

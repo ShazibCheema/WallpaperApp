@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:WallpaperHaven/views/widgets/CustomAppBar.dart';
-import 'package:WallpaperHaven/views/widgets/category.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -90,7 +89,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 10),
-                    height: MediaQuery.of(context).size.height,
+                    height: 800,
                     child: GridView.builder(
                         physics: BouncingScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -126,6 +125,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                         categoryResults[index].imgSrc),
                                   ),
                                 ),
+
                               ),
                             ))),
                   ),
